@@ -1,0 +1,26 @@
+.logo {
+  display: none;
+  color: black;
+  /* width: 10rem; */
+  /* height: 3rem; */
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.logo span {
+  color: hsl(120, 79%, 38%);
+  font-size: 1.8rem;
+}
+
+@media (min-width: 450px) {
+  .logo {
+    display: block;
+  }
+}
+/* @media (min-width: 768px) {
+  .logo {
+    display: block;
+  }
+} */
