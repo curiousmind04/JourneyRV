@@ -1,0 +1,19 @@
+.center {
+  text-align: center;
+}
+
+.start {
+  text-align: start;
+}
+
+.title {
+  font-size: 1.5rem /* 24px */;
+  line-height: 2rem /* 32px */;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-weight: 300;
+  color: hsl(0, 0%, 45%);
+  margin-top: 0.5rem;
+}
