@@ -24,7 +24,6 @@ export default function RootLayout({
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
-          {/* <Modal title="HI" /> */}
           <RegisterModal />
           <Navbar />
         </ClientOnly>

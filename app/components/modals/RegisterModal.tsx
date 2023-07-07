@@ -9,6 +9,9 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import classes from "./RegisterModal.module.css";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
+import Button from "../Button";
+import { FcGoogle } from "react-icons/fc";
+import { AiFillGithub } from "react-icons/ai";
 
 const RegisterModal = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -69,6 +72,35 @@ const RegisterModal = () => {
     </div>
   );
 
+  const footerContent = (
+    <div className={classes.footerContainer}>
+      <hr />
+      <Button
+        outline
+        label="Continue with Google"
+        icon={FcGoogle}
+        onClick={() => {}}
+      />
+      <Button
+        outline
+        label="Continue with Github"
+        icon={AiFillGithub}
+        onClick={() => {}}
+      />
+      <div className={classes.switchModeOuter}>
+        <div className={classes.switchModeInner}>
+          <div>Already have an account?</div>
+          <div
+            className={classes.switchToLogin}
+            onClick={registerModal.onClose}
+          >
+            Log in
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <Modal
       disabled={isLoading}
@@ -78,6 +110,7 @@ const RegisterModal = () => {
       onSubmit={handleSubmit(onSubmit)}
       onClose={registerModal.onClose}
       body={bodyContent}
+      footer={footerContent}
     />
   );
 };
