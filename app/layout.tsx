@@ -5,7 +5,7 @@ import "./globals.css";
 
 import { Nunito } from "next/font/google";
 import ToasterProvider from "./providers/ToasterProvider";
-import Modal from "./components/modals/Modal";
+// import Modal from "./components/modals/Modal";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 

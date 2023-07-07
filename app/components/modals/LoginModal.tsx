@@ -3,7 +3,7 @@
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form";
-import axios from "axios";
+// import axios from "axios";
 import { toast } from "react-hot-toast";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
@@ -83,13 +83,13 @@ const LoginModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
       />
       <Button
         outline
         label="Continue with Github"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
       <div className={classes.switchModeOuter}>
         <div className={classes.switchModeInner}>
