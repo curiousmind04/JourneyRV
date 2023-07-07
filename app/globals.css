@@ -105,6 +105,7 @@ body {
   z-index: 10;
   transform-origin: 0;
   color: hsl(240, 5%, 65%);
+  pointer-events: none;
 }
 
 .formatPriceLabel {

@@ -8,14 +8,18 @@ const imageStyle = {
   display: "block",
 };
 
-const Avatar = () => {
+interface AvatarProps {
+  src: string | null | undefined;
+}
+
+const Avatar: React.FC<AvatarProps> = ({ src }) => {
   return (
     <Image
       style={imageStyle}
       alt="avatar"
       height="30"
       width="30"
-      src={"/images/placeholder.jpg"}
+      src={src || "/images/placeholder.jpg"}
     />
   );
 };
