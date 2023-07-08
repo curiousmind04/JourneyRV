@@ -30,6 +30,8 @@
   cursor: pointer;
 }
 
-.switchToLogin:hover {
-  text-decoration: underline;
+@media (hover: hover) {
+  .switchToLogin:hover {
+    text-decoration: underline;
+  }
 }

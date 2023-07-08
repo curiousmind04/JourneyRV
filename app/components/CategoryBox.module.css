@@ -10,11 +10,6 @@
   cursor: pointer;
 }
 
-.unselected:hover,
-.selected:hover {
-  color: rgb(38, 38, 38);
-}
-
 .unselected {
   border-bottom: 2px solid transparent;
   color: rgb(115, 115, 115);
@@ -29,4 +24,11 @@
   font-weight: 500;
   font-size: 0.875rem /* 14px */;
   line-height: 1.25rem /* 20px */;
+}
+
+@media (hover: hover) {
+  .unselected:hover,
+  .selected:hover {
+    color: rgb(38, 38, 38);
+  }
 }
