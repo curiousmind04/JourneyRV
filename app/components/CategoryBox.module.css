@@ -1,0 +1,32 @@
+.unselected,
+.selected {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.unselected:hover,
+.selected:hover {
+  color: rgb(38, 38, 38);
+}
+
+.unselected {
+  border-bottom: 2px solid transparent;
+  color: rgb(115, 115, 115);
+}
+
+.selected {
+  border-bottom: 2px solid hsl(0, 0%, 15%);
+  color: rgb(38, 38, 38);
+}
+
+.label {
+  font-weight: 500;
+  font-size: 0.875rem /* 14px */;
+  line-height: 1.25rem /* 20px */;
+}

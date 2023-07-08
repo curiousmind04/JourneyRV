@@ -1,7 +1,7 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form";
 // import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -53,6 +53,11 @@ const LoginModal = () => {
     });
   };
 
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className={classes.bodyContainer}>
       <Heading title="Welcome back" subtitle="Login to your account!" />
@@ -93,12 +98,9 @@ const LoginModal = () => {
       />
       <div className={classes.switchModeOuter}>
         <div className={classes.switchModeInner}>
-          <div>Already have an account?</div>
-          <div
-            className={classes.switchToLogin}
-            onClick={registerModal.onClose}
-          >
-            Log in
+          <div>First time using JourneyRV?</div>
+          <div className={classes.switchToLogin} onClick={toggle}>
+            Create an account
           </div>
         </div>
       </div>

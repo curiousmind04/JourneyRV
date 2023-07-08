@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import Modal from "./Modal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
 import classes from "./RegisterModal.module.css";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
@@ -17,6 +18,7 @@ import { signIn } from "next-auth/react";
 const RegisterModal = () => {
   const [isLoading, setIsLoading] = useState(false);
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
 
   const {
     register,
@@ -41,6 +43,11 @@ const RegisterModal = () => {
         setIsLoading(false);
       });
   };
+
+  const toggle = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className={classes.bodyContainer}>
@@ -91,10 +98,7 @@ const RegisterModal = () => {
       <div className={classes.switchModeOuter}>
         <div className={classes.switchModeInner}>
           <div>Already have an account?</div>
-          <div
-            className={classes.switchToLogin}
-            onClick={registerModal.onClose}
-          >
+          <div className={classes.switchToLogin} onClick={toggle}>
             Log in
           </div>
         </div>
