@@ -10,6 +10,7 @@ import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import dynamic from "next/dynamic";
+import Counter from "../inputs/Counter";
 
 enum STEPS {
   CATEGORY = 0,
@@ -46,6 +47,8 @@ const RentModal = () => {
 
   const category = watch("category");
   const location = watch("location");
+  const occupantsCount = watch("occupantsCount");
+  const bedCount = watch("bedCount");
 
   //rerendering map when location changes (dynamic import), ignore warning
   const Map = useMemo(
@@ -122,6 +125,30 @@ const RentModal = () => {
           onChange={(value) => setCustomValue("location", value)}
         />
         <Map center={location?.latlng} />
+      </div>
+    );
+  }
+
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className={classes.bodyContainer}>
+        <Heading
+          title="Share some basics about your RV"
+          subtitle="What amenities do you have?"
+        />
+        <Counter
+          title="Occupants"
+          subtitle="How many occupants do you allow?"
+          value={occupantsCount}
+          onChange={(value) => setCustomValue("occupantsCount", value)}
+        />
+        <hr />
+        <Counter
+          title="Beds"
+          subtitle="How many beds do you have?"
+          value={bedCount}
+          onChange={(value) => setCustomValue("bedCount", value)}
+        />
       </div>
     );
   }

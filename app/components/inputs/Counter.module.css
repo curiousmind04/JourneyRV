@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.subtitle {
+  font-weight: 300;
+  color: hsl(215, 14%, 34%);
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.action {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid hsl(0, 0%, 64%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(0, 0%, 32%);
+  cursor: pointer;
+}
+
+.value {
+  font-weight: 300;
+  font-size: 1.25rem /* 20px */;
+  line-height: 1.75rem /* 28px */;
+  color: hsl(0, 0%, 32%);
+}
+
+@media (hover: hover) {
+  .action:hover {
+    opacity: 0.8;
+  }
+}
