@@ -8,6 +8,8 @@ import classes from "./RentModal.module.css";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, useForm } from "react-hook-form";
+import CountrySelect from "../inputs/CountrySelect";
+import dynamic from "next/dynamic";
 
 enum STEPS {
   CATEGORY = 0,
@@ -43,6 +45,16 @@ const RentModal = () => {
   });
 
   const category = watch("category");
+  const location = watch("location");
+
+  //rerendering map when location changes (dynamic import), ignore warning
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("../Map"), {
+        ssr: false,
+      }),
+    [location]
+  );
 
   //created setCustomValue because setValue doesn't rerender the page
   const setCustomValue = (id: string, value: any) => {
@@ -98,11 +110,27 @@ const RentModal = () => {
     </div>
   );
 
+  if (step === STEPS.LOCATION) {
+    bodyContent = (
+      <div className={classes.bodyContainer}>
+        <Heading
+          title="Where is your RV located?"
+          subtitle="Help guests find you!"
+        />
+        <CountrySelect
+          value={location}
+          onChange={(value) => setCustomValue("location", value)}
+        />
+        <Map center={location?.latlng} />
+      </div>
+    );
+  }
+
   return (
     <Modal
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
-      onSubmit={rentModal.onClose}
+      onSubmit={onNext}
       title="Rent your RV!"
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}

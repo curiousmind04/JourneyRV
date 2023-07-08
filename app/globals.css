@@ -9,6 +9,17 @@ body {
   position: relative;
 }
 
+/* Map */
+
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
+}
+
+/*  */
+
 /* Button.tsx component */
 
 .button {

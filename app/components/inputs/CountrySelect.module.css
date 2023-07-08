@@ -1,0 +1,10 @@
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.region {
+  color: hsl(0, 0%, 45%);
+  margin-left: 0.25rem;
+}
