@@ -11,6 +11,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import dynamic from "next/dynamic";
 import Counter from "../inputs/Counter";
+import ImageUpload from "../inputs/ImageUpload";
 
 enum STEPS {
   CATEGORY = 0,
@@ -49,6 +50,7 @@ const RentModal = () => {
   const location = watch("location");
   const occupantsCount = watch("occupantsCount");
   const bedCount = watch("bedCount");
+  const imageSrc = watch("imageSrc");
 
   //rerendering map when location changes (dynamic import), ignore warning
   const Map = useMemo(
@@ -148,6 +150,21 @@ const RentModal = () => {
           subtitle="How many beds do you have?"
           value={bedCount}
           onChange={(value) => setCustomValue("bedCount", value)}
+        />
+      </div>
+    );
+  }
+
+  if (step === STEPS.IMAGES) {
+    bodyContent = (
+      <div className={classes.bodyContainer}>
+        <Heading
+          title="Add a photo of your RV"
+          subtitle="Show guests what your RV looks like!"
+        />
+        <ImageUpload
+          value={imageSrc}
+          onChange={(value) => setCustomValue("imageSrc", value)}
         />
       </div>
     );
