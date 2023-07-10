@@ -1,0 +1,63 @@
+.container {
+  grid-column: span 1 / span 1;
+  cursor: pointer;
+}
+
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.imageContainer {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heartButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.location {
+  font-weight: 600;
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem /* 28px */;
+}
+
+.info {
+  font-weight: 300;
+  color: hsl(0, 0%, 45%);
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.price {
+  font-weight: 600;
+}
+
+.priceDuration {
+  font-weight: 300;
+}
+
+@media (hover: hover) {
+  .container:hover .image {
+    transform: scale(1.1);
+  }
+}
