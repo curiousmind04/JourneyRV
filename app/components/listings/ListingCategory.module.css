@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.innerContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon {
+  color: hsl(0, 0%, 32%);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem /* 28px */;
+  font-weight: 600;
+}
+
+.description {
+  color: hsl(0, 0%, 45%);
+  font-weight: 300;
+}
