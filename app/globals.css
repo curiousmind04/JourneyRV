@@ -135,3 +135,18 @@ body {
 .input:focus ~ .label {
   transform: scale(0.75) translateY(-1.25rem);
 }
+
+/*  */
+
+/* Calendar */
+
+.rdrMonth {
+  width: 100% !important;
+}
+
+.rdrCalendarWrapper {
+  width: 100% !important;
+  font-size: 16px !important;
+}
+
+/*  */
