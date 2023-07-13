@@ -22,7 +22,7 @@ export default async function getReservations(params: IParams) {
     }
     //if we send authorId, we will find all reservations
     //that others have made for the author's various listings
-    if (listingId) {
+    if (authorId) {
       query.listing = { userId: authorId };
     }
 
