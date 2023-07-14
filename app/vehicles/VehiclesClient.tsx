@@ -1,6 +1,6 @@
 "use client";
 
-import { SafeReservation, SafeUser } from "../types";
+import { SafeListing, SafeUser } from "../types";
 import Heading from "../components/Heading";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
@@ -10,13 +10,13 @@ import ListingCard from "../components/listings/ListingCard";
 import Container from "../components/Container";
 import classes from "../shared/PageStyling.module.css";
 
-interface TripsClientProps {
-  reservations: SafeReservation[];
+interface VehiclesClientProps {
+  listings: SafeListing[];
   currentUser?: SafeUser | null;
 }
 
-const TripsClient: React.FC<TripsClientProps> = ({
-  reservations,
+const VehiclesClient: React.FC<VehiclesClientProps> = ({
+  listings,
   currentUser,
 }) => {
   const router = useRouter();
@@ -27,9 +27,9 @@ const TripsClient: React.FC<TripsClientProps> = ({
       setDeletingId(id);
 
       axios
-        .delete(`/api/reservations/${id}`)
+        .delete(`/api/listings/${id}`)
         .then(() => {
-          toast.success("Reservation cancelled");
+          toast.success("Listing deleted");
           router.refresh();
         })
         .catch((error) => {
@@ -44,20 +44,16 @@ const TripsClient: React.FC<TripsClientProps> = ({
 
   return (
     <Container>
-      <Heading
-        title="Trips"
-        subtitle="Where you've been and where you're going"
-      />
+      <Heading title="Vehicles" subtitle="List of your RVs" />
       <div className={classes.container}>
-        {reservations.map((reservation) => (
+        {listings.map((listing) => (
           <ListingCard
-            key={reservation.id}
-            data={reservation.listing}
-            reservation={reservation}
-            actionId={reservation.id}
+            key={listing.id}
+            data={listing}
+            actionId={listing.id}
             onAction={onCancel}
-            disabled={deletingId === reservation.id}
-            actionLabel="Cancel reservation"
+            disabled={deletingId === listing.id}
+            actionLabel="Delete RV"
             currentUser={currentUser}
           />
         ))}
@@ -65,4 +61,4 @@ const TripsClient: React.FC<TripsClientProps> = ({
     </Container>
   );
 };
-export default TripsClient;
+export default VehiclesClient;

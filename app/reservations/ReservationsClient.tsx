@@ -8,7 +8,7 @@ import { useCallback, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import ListingCard from "../components/listings/ListingCard";
-import classes from "./ReservationsClient.module.css";
+import classes from "../shared/PageStyling.module.css";
 
 interface ReservationsClientProps {
   reservations: SafeReservation[];
