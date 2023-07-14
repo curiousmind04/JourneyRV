@@ -90,7 +90,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
         <div className={classes.info}>{reservationDate || data.category}</div>
         <div className={classes.priceContainer}>
           <div className={classes.price}>$ {price}</div>
-          {!reservation && <div className={classes.priceDuration}>night</div>}
+          {!reservation && <div className={classes.priceDuration}>day</div>}
         </div>
         {onAction && actionLabel && (
           <Button

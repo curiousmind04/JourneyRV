@@ -28,7 +28,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
     <div className={classes.container}>
       <div className={classes.priceContainer}>
         <div className={classes.price}>$ {price}</div>
-        <div className={classes.duration}>night</div>
+        <div className={classes.duration}>day</div>
       </div>
       <hr />
       <Calendar
