@@ -61,6 +61,10 @@ const LoginModal = () => {
   const bodyContent = (
     <div className={classes.bodyContainer}>
       <Heading title="Welcome back" subtitle="Login to your account!" />
+      <hr />
+      <p>Demo Email: test@test.com</p>
+      <p>Demo Password: testers</p>
+      <hr />
       <Input
         id="email"
         label="Email"
