@@ -3,10 +3,13 @@
 import { BiSearch } from "react-icons/bi";
 
 import classes from "./Search.module.css";
+import useSearchModal from "@/app/hooks/useSearchModal";
 
 const Search = () => {
+  const searchModal = useSearchModal();
+
   return (
-    <div className={classes.container}>
+    <div onClick={searchModal.onOpen} className={classes.container}>
       <div className={classes.inner}>
         <div className={classes.location}>Anywhere</div>
         <div className={classes.time}>Any week</div>
